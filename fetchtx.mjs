@@ -19,7 +19,7 @@ const USDC_ABI = [
 // 配置 Viem 客户端
 const client = createPublicClient({
   chain: mainnet,
-  transport: http(), // 替换为你的 RPC URL
+  transport: http(), 
 });
 
 // 查询函数
@@ -41,12 +41,12 @@ async function getRecentUSDCTransfers() {
       toBlock,
     });
 
-    // 解析并打印日志，包括交易 ID
+    // 解析并打印日志，
     console.log(`Found ${logs.length} Transfer events in the last 100 blocks:`);
     logs.forEach((log, index) => {
       const { from, to, value } = log.args;
-      const valueInUSDC = formatUnits(value, 6); // USDC 有 6 位小数
-      const txHash = log.transactionHash; // 交易 ID
+      const valueInUSDC = formatUnits(value, 6); 
+      const txHash = log.transactionHash; 
       console.log(
         ` 从 ${from} 转账给 ${to}, ${valueInUSDC} USDC， 交易ID: ${txHash},`
       );
@@ -56,5 +56,4 @@ async function getRecentUSDCTransfers() {
   }
 }
 
-// 执行查询
 getRecentUSDCTransfers();
