@@ -30,7 +30,7 @@ async function getRecentUSDCTransfers() {
     console.log(`Latest block: ${latestBlock}`);
 
     // 计算查询范围：最近 100 个区块
-    const fromBlock = latestBlock - 100n;
+    const fromBlock = latestBlock - 99n;
     const toBlock = latestBlock;
 
     // 查询 Transfer 事件日志
